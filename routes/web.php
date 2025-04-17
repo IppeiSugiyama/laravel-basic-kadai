@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// 作成したコントローラを宣言する
+use  App\Http\Controllers\Controller;
+// 作成したコントローラを宣　　メソッドを使用できるようにする
+use App\Http\Controllers\PostController;
 
+Route::get('/posts', [PostController::class, 'index']);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test', function () {
+    return view('posts.index');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello', [Controller::class, 'index']);
